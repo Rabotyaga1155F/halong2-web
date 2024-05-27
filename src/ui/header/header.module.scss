@@ -15,16 +15,34 @@
       .logoText {
         @apply text-yellow font-semibold text-[50px];
         text-shadow: 1px 3px black;
+
+        @media (min-width: 1px) {
+          @apply text-[20px];
+        }
+        @media (min-width: 1400px) {
+            @apply text-[40px];
+        }
       }
 
+
       .logoDescription {
-        @apply text-yellow font-semibold text-[15px];
+        @apply text-yellow font-semibold;
         text-shadow: 1px 2px black;
+
+        @media (min-width: 1px) {
+          @apply text-[14px];
+        }
+        @media (min-width: 1400px) {
+          @apply text-[15px];
+        }
       }
     }
   }
 
   .navbar {
+    @media (max-width: 768px) {
+      @apply hidden;
+    }
     .list {
       @apply flex items-center gap-12;
 
@@ -33,6 +51,13 @@
 
         &:hover {
           @apply text-yellow-hover;
+        }
+
+        @media (min-width: 1px) {
+          @apply text-[14px];
+        }
+        @media (min-width: 1400px) {
+          @apply text-[25px];
         }
       }
     }
@@ -46,12 +71,28 @@
 
       .addressImage {
         @apply w-[24px] h-[32px];
+
+        @media (min-width: 1px) {
+          @apply w-[12px] h-[17px];
+
+        }
+        @media (min-width: 1400px) {
+          @apply w-[24px] h-[32px];
+        }
       }
 
       .addressTextContainer {
         .addressText {
           @apply text-yellow text-[20px] font-semibold leading-5 text-center pl-2;
           text-shadow: 1px 2px black;
+
+          @media (min-width: 1px) {
+            @apply text-[11px];
+
+          }
+          @media (min-width: 1400px) {
+            @apply text-[20px];
+          }
         }
       }
     }
@@ -61,11 +102,27 @@
 
       .phoneImage {
         @apply w-[24px] h-[24px];
+
+        @media (min-width: 1px) {
+          @apply w-[12px] h-[12px];
+
+        }
+        @media (min-width: 1400px) {
+          @apply w-[24px] h-[24px];
+        }
       }
 
       .phoneText {
         @apply text-yellow text-[20px] font-semibold leading-5 text-center pl-2;
         text-shadow: 1px 2px black;
+
+        @media (min-width: 1px) {
+          @apply text-[12px];
+
+        }
+        @media (min-width: 1400px) {
+          @apply text-[20px];
+        }
       }
     }
   }

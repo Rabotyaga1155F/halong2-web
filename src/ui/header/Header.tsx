@@ -34,14 +34,22 @@ const Header: FC = () => {
       </nav>
       <div className={styles.addressContainer}>
         <address className={styles.address}>
-          <Image src={geoIcon} alt={"geoIcon"} />
+          <Image
+            className={styles.addressImage}
+            src={geoIcon}
+            alt={"geoIcon"}
+          />
           <div className={styles.addressTextContainer}>
             <h3 className={styles.addressText}>Вайнера 9а,</h3>
             <h3 className={styles.addressText}>Хохрякова 72</h3>
           </div>
         </address>
         <div className={styles.phone}>
-          <Image src={phoneIcon} alt={"phoneIcon"} />
+          <Image
+            className={styles.phoneImage}
+            src={phoneIcon}
+            alt={"phoneIcon"}
+          />
           <h3 className={styles.phoneText}>+79826488666</h3>
         </div>
       </div>

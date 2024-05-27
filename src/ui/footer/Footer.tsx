@@ -15,9 +15,9 @@ const Footer: FC = () => {
           Присоединяйтесь к нам соцсетях
         </h4>
         <div className={styles.footerIconsCont}>
-          <Image width={40} height={40} src={vk} alt="vk" />
-          <Image width={40} height={40} src={inst} alt="inst" />
-          <Image width={40} height={40} src={facebook} alt="facebook" />
+          <Image className={styles.icon} src={vk} alt="vk" />
+          <Image className={styles.icon} src={inst} alt="inst" />
+          <Image className={styles.icon} src={facebook} alt="facebook" />
         </div>
       </div>
     </footer>

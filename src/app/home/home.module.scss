@@ -30,28 +30,72 @@
 
     .bestProductTitle {
       @apply text-center italic text-yellow text-[65px];
+
+      @media (min-width: 1px) {
+        @apply text-[32px] py-3;
+
+      }
+      @media (min-width: 1240px) {
+        @apply text-[60px];
+      }
     }
 
     .gridContainer {
-      @apply flex flex-row;
+      @apply flex flex-row py-3;
+
+      @media (max-width: 600px) {
+        @apply flex-col;
+      }
 
       .left {
         @apply w-1/2 py-8 flex items-center justify-center;
 
+        @media (max-width: 600px) {
+          @apply w-full;
+        }
+
         .image {
           @apply rounded-full h-[500px] w-[500px];
+
+          @media (min-width: 1px) {
+            @apply h-[250px] w-[250px];
+
+          }
+          @media (min-width: 1400px) {
+            @apply h-[500px] w-[500px];
+          }
         }
       }
 
       .right {
         @apply w-1/2 my-auto;
 
+        @media (max-width: 600px) {
+          @apply w-full;
+        }
+
         .description {
           @apply text-yellow text-[20px] font-light italic mx-40;
+
+          @media (min-width: 1px) {
+            @apply mx-12 text-[14px];
+
+          }
+          @media (min-width: 1400px) {
+            @apply mx-40 text-[20px];
+          }
         }
 
         .composition {
           @apply text-yellow text-[30px] font-light text-center;
+
+          @media (min-width: 1px) {
+            @apply text-[20px];
+
+          }
+          @media (min-width: 1400px) {
+            @apply text-[30px];
+          }
         }
 
         .priceContainer {
@@ -59,6 +103,15 @@
 
           .priceText {
             @apply text-[40px] text-yellow;
+
+
+            @media (min-width: 1px) {
+              @apply text-[20px];
+
+            }
+            @media (min-width: 1400px) {
+              @apply text-[40px];
+            }
           }
         }
       }
@@ -74,22 +127,56 @@
       @apply text-yellow text-[50px] font-light px-12 rounded-[15px] text-center inline-block mt-[16px];
       background: black;
       opacity: 0.8;
+
+      @media (max-width: 600px) {
+        @apply text-[20px];
+      }
+
+      @media (max-width: 1200px) {
+        @apply text-[35px];
+      }
     }
 
     .gridAboutContainer {
       @apply flex flex-row w-full;
 
+      @media (max-width: 800px) {
+        @apply flex-col;
+      }
+
       .leftAbout, .rightAbout {
         @apply w-1/2 py-2 flex flex-col items-center;
+
+        @media (max-width: 800px) {
+          @apply w-full;
+        }
+
 
         .aboutName {
           @apply text-[40px] text-yellow px-12 rounded-[15px] text-center;
           background: black;
           opacity: 0.8;
+
+          @media (max-width: 600px) {
+            @apply text-[18px];
+          }
+
+          @media (max-width: 1200px) {
+            @apply text-[25px];
+          }
         }
 
         .map {
           @apply px-32 my-6;
+
+          @media (min-width: 1px) {
+            @apply px-8;
+
+          }
+
+          @media (min-width: 1200px) {
+            @apply px-16;
+          }
         }
       }
     }

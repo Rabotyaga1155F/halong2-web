@@ -1,18 +1,34 @@
+.footer {
+  @apply bg-red;
 
-
-.footer{
-    @apply bg-red;
-
-  .footerBlock{
+  .footerBlock {
     @apply py-6 pl-[65%];
 
-    .footerDescription{
-      @apply text-yellow text-[16px] font-semibold;
+    @media (max-width: 600px) {
+      @apply pl-0 text-center flex flex-col items-center;
     }
-    .footerIconsCont{
+
+    .footerDescription {
+      @apply text-yellow text-[16px] font-semibold;
+
+      @media (max-width: 600px) {
+        @apply text-[12px];
+      }
+    }
+    .footerIconsCont {
       @apply flex gap-3;
 
+      @media (max-width: 600px) {
+        @apply justify-center;
+      }
+
+      .icon {
+        @apply w-[40px] h-[40px];
+
+        @media (max-width: 600px) {
+          @apply w-[20px] h-[20px];
+        }
+      }
     }
   }
-
 }

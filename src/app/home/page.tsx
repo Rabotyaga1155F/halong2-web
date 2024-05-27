@@ -51,7 +51,6 @@ export default function Home() {
               src="https://yandex.ru/map-widget/v1/?um=constructor%3A4508a0c7774e8392c11027fc6480bc8a01524da1113211b5ecc17553fcbfcd8e&amp;source=constructor"
               width="100%"
               height="450"
-              frameBorder="0"
             ></iframe>
           </div>
           <div className={styles.rightAbout}>
@@ -61,7 +60,6 @@ export default function Home() {
               src="https://yandex.ru/map-widget/v1/?um=constructor%3A90954d78c85acef9a988fb305a0721b4c8add38f635930feb5bb0694982dc816&amp;source=constructor"
               width="100%"
               height="450"
-              frameBorder="0"
             ></iframe>
           </div>
         </div>
