@@ -1,0 +1,97 @@
+.container {
+  @apply w-full;
+
+  .startCont {
+    @apply h-screen relative flex flex-col items-center;
+    background-size: cover;
+    background-image: url("../../assets/images/bg-image.png");
+
+    &::before {
+      content: "";
+      @apply absolute inset-0 bg-black opacity-50;
+      z-index: 1;
+    }
+
+    .title {
+      @apply text-yellow text-[60px] text-center relative;
+      z-index: 2;
+    }
+
+    .menuButton {
+      @apply bg-red text-yellow px-32 rounded-xl py-5 relative text-2xl font-semibold inline-block mt-[500px];
+      z-index: 2;
+    }
+  }
+
+  .bestProductContainer {
+    @apply -mt-1;
+    background-size: cover;
+    background-image: url("../../assets/images/best-products-bg.png");
+
+    .bestProductTitle {
+      @apply text-center italic text-yellow text-[65px];
+    }
+
+    .gridContainer {
+      @apply flex flex-row;
+
+      .left {
+        @apply w-1/2 py-8 flex items-center justify-center;
+
+        .image {
+          @apply rounded-full h-[500px] w-[500px];
+        }
+      }
+
+      .right {
+        @apply w-1/2 my-auto;
+
+        .description {
+          @apply text-yellow text-[20px] font-light italic mx-40;
+        }
+
+        .composition {
+          @apply text-yellow text-[30px] font-light text-center;
+        }
+
+        .priceContainer {
+          @apply flex items-center justify-center gap-24 pt-16;
+
+          .priceText {
+            @apply text-[40px] text-yellow;
+          }
+        }
+      }
+    }
+  }
+
+  .aboutContainer {
+    @apply -mt-1 flex flex-col items-center justify-center;
+    background-size: cover;
+    background-image: url("../../assets/images/bg-image.png");
+
+    .aboutTitle {
+      @apply text-yellow text-[50px] font-light px-12 rounded-[15px] text-center inline-block mt-[16px];
+      background: black;
+      opacity: 0.8;
+    }
+
+    .gridAboutContainer {
+      @apply flex flex-row w-full;
+
+      .leftAbout, .rightAbout {
+        @apply w-1/2 py-2 flex flex-col items-center;
+
+        .aboutName {
+          @apply text-[40px] text-yellow px-12 rounded-[15px] text-center;
+          background: black;
+          opacity: 0.8;
+        }
+
+        .map {
+          @apply px-32 my-6;
+        }
+      }
+    }
+  }
+}

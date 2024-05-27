@@ -1,81 +1,72 @@
+.header {
+  @apply bg-red flex items-center justify-between px-3 ;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
-
-.container{
-@apply bg-red flex items-center justify-between px-3;
-
-  .logoContainer{
+  .logoContainer {
     @apply flex items-center;
 
-    .logoImage{
+    .logoImage {
       @apply h-[85px] w-[85px];
     }
 
-    .logoTextContainer{
+    .logoTextContainer {
       @apply flex flex-col;
 
-      .logoText{
+      .logoText {
         @apply text-yellow font-semibold text-[50px];
-        text-shadow: black 1px 3px;
+        text-shadow: 1px 3px black;
       }
 
-      .logoDescription{
+      .logoDescription {
         @apply text-yellow font-semibold text-[15px];
-        text-shadow: black 1px 2px;
+        text-shadow: 1px 2px black;
       }
     }
-
   }
 
-  .navbar{
-
-
-    .list{
+  .navbar {
+    .list {
       @apply flex items-center gap-12;
 
-
-      .listItem{
+      .listItem {
         @apply text-[25px] text-yellow font-semibold;
-      }
-      .listItem:hover{
-        @apply text-yellow-hover;
-      }
 
-    }
-
-  }
-
-  .addressContainer{
-    @apply flex flex-col items-center gap-2;
-
-    .address{
-      @apply flex items-center;
-
-      .addressImage{
-        @apply w-[24px] h-[32px];
-
-      }
-      .addressTextContainer{
-
-        .addressText{
-          @apply text-yellow text-[20px] font-semibold leading-5 text-center pl-2;
-          text-shadow: black 1px 2px;
+        &:hover {
+          @apply text-yellow-hover;
         }
       }
-
-    }
-    .phone{
-      @apply flex items-center;
-
-      .phoneImage{
-        @apply w-[24px] h-[24px];
-
-      }
-      .phoneText{
-        @apply text-yellow text-[20px] font-semibold leading-5 text-center pl-2;
-        text-shadow: black 1px 2px;
-
-      }
     }
   }
 
+  .addressContainer {
+    @apply flex flex-col items-center gap-2;
+
+    .address {
+      @apply flex items-center;
+
+      .addressImage {
+        @apply w-[24px] h-[32px];
+      }
+
+      .addressTextContainer {
+        .addressText {
+          @apply text-yellow text-[20px] font-semibold leading-5 text-center pl-2;
+          text-shadow: 1px 2px black;
+        }
+      }
+    }
+
+    .phone {
+      @apply flex items-center;
+
+      .phoneImage {
+        @apply w-[24px] h-[24px];
+      }
+
+      .phoneText {
+        @apply text-yellow text-[20px] font-semibold leading-5 text-center pl-2;
+        text-shadow: 1px 2px black;
+      }
+    }
+  }
 }

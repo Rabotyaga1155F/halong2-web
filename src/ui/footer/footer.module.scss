@@ -1,0 +1,18 @@
+
+
+.footer{
+    @apply bg-red;
+
+  .footerBlock{
+    @apply py-6 pl-[65%];
+
+    .footerDescription{
+      @apply text-yellow text-[16px] font-semibold;
+    }
+    .footerIconsCont{
+      @apply flex gap-3;
+
+    }
+  }
+
+}
