@@ -1,0 +1,81 @@
+
+
+.container{
+@apply bg-red flex items-center justify-between px-3;
+
+  .logoContainer{
+    @apply flex items-center;
+
+    .logoImage{
+      @apply h-[85px] w-[85px];
+    }
+
+    .logoTextContainer{
+      @apply flex flex-col;
+
+      .logoText{
+        @apply text-yellow font-semibold text-[50px];
+        text-shadow: black 1px 3px;
+      }
+
+      .logoDescription{
+        @apply text-yellow font-semibold text-[15px];
+        text-shadow: black 1px 2px;
+      }
+    }
+
+  }
+
+  .navbar{
+
+
+    .list{
+      @apply flex items-center gap-12;
+
+
+      .listItem{
+        @apply text-[25px] text-yellow font-semibold;
+      }
+      .listItem:hover{
+        @apply text-yellow-hover;
+      }
+
+    }
+
+  }
+
+  .addressContainer{
+    @apply flex flex-col items-center gap-2;
+
+    .address{
+      @apply flex items-center;
+
+      .addressImage{
+        @apply w-[24px] h-[32px];
+
+      }
+      .addressTextContainer{
+
+        .addressText{
+          @apply text-yellow text-[20px] font-semibold leading-5 text-center pl-2;
+          text-shadow: black 1px 2px;
+        }
+      }
+
+    }
+    .phone{
+      @apply flex items-center;
+
+      .phoneImage{
+        @apply w-[24px] h-[24px];
+
+      }
+      .phoneText{
+        @apply text-yellow text-[20px] font-semibold leading-5 text-center pl-2;
+        text-shadow: black 1px 2px;
+
+      }
+    }
+  }
+
+}
