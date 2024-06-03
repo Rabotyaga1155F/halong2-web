@@ -1,0 +1,25 @@
+
+
+.navbar {
+  @media (max-width: 768px) {
+    @apply hidden;
+  }
+  .list {
+    @apply flex items-center gap-12;
+
+    .listItem {
+      @apply text-[25px] text-yellow font-semibold;
+
+      &:hover {
+        @apply text-yellow-hover;
+      }
+
+      @media (min-width: 1px) {
+        @apply text-[14px];
+      }
+      @media (min-width: 1400px) {
+        @apply text-[25px];
+      }
+    }
+  }
+}

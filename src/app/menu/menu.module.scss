@@ -1,0 +1,94 @@
+.container {
+  @apply w-full;
+
+  .startCont {
+    @apply h-screen relative flex flex-col items-center;
+    background-size: cover;
+    background-image: url("../../assets/images/bg-image.png");
+
+    &::before {
+      content: "";
+      @apply absolute inset-0 bg-black opacity-50;
+      z-index: 1;
+    }
+
+    .title {
+      @apply text-yellow text-[60px] text-center relative;
+      z-index: 2;
+    }
+  }
+
+  .menuContainer {
+    @apply -my-1;
+
+    background-image: url("../../assets/images/best-products-bg.png");
+
+    .menu{
+      @apply flex justify-around flex-row flex-wrap py-12 ;
+    }
+
+    .pagination{
+      @apply flex justify-center items-center;
+      .menuButton {
+        @apply bg-red text-yellow rounded-xl py-3 mb-6 mx-auto text-xl font-semibold inline-block px-8;
+
+        &:hover {
+          @apply bg-red-hover;
+        }
+        @media (min-width: 1px) {
+          @apply py-1 px-4 text-[12px];
+        }
+
+        @media (min-width: 400px) {
+          @apply py-4 px-12 text-xl;
+        }
+
+        @media (min-width: 768px) {
+          @apply py-4 px-16 text-2xl;
+        }
+
+        @media (min-width: 1024px) {
+          @apply py-5 px-20 text-2xl;
+        }
+
+        @media (min-width: 1280px) {
+          @apply py-5 px-24 text-2xl;
+        }
+      }
+
+      .menuButton:disabled{
+        background-color: transparent;
+        color: transparent;
+      }
+      .pageNumber{
+        @apply text-red text-5xl bg-yellow px-3 rounded-xl mb-4;
+
+        @media (min-width: 1px) {
+          @apply text-xl;
+        }
+
+        @media (min-width: 400px) {
+          @apply text-2xl;
+        }
+
+        @media (min-width: 768px) {
+          @apply text-3xl;
+        }
+
+        @media (min-width: 1024px) {
+          @apply text-4xl;
+        }
+
+        @media (min-width: 1280px) {
+          @apply text-5xl;
+        }
+      }
+    }
+
+    .loader{
+      @apply flex justify-center items-center py-3;
+    }
+
+
+  }
+}

@@ -1,3 +1,4 @@
+"use client";
 import React, { FC } from "react";
 import styles from "./header.module.scss";
 import Image from "next/image";
@@ -5,33 +6,20 @@ import Image from "next/image";
 import logo from "@/assets/logo.svg";
 import geoIcon from "@/assets/icons/geo-icon.svg";
 import phoneIcon from "@/assets/icons/phone-icon.svg";
+import Link from "next/link";
+import Nav from "@/ui/header/nav/Nav";
 
 const Header: FC = () => {
   return (
     <header className={styles.header}>
-      <div className={styles.logoContainer}>
+      <Link href={"/"} className={styles.logoContainer}>
         <Image className={styles.logoImage} src={logo} alt={"Logo"} />
         <div className={styles.logoTextContainer}>
           <h3 className={styles.logoText}>HA LONG 2</h3>
           <h4 className={styles.logoDescription}>РЕСТОРАН ВЬЕТНАМСКОЙ КУХНИ</h4>
         </div>
-      </div>
-      <nav role={"navigation"} className={styles.navbar}>
-        <ul className={styles.list}>
-          <li className={styles.listItem}>
-            <button>Начало</button>
-          </li>
-          <li className={styles.listItem}>
-            <button>Главное блюдо</button>
-          </li>
-          <li className={styles.listItem}>
-            <button>Где мы находимся</button>
-          </li>
-          <li className={styles.listItem}>
-            <button>Мы в соцсетях</button>
-          </li>
-        </ul>
-      </nav>
+      </Link>
+      <Nav />
       <div className={styles.addressContainer}>
         <address className={styles.address}>
           <Image
@@ -50,7 +38,9 @@ const Header: FC = () => {
             src={phoneIcon}
             alt={"phoneIcon"}
           />
-          <h3 className={styles.phoneText}>+79826488666</h3>
+          <a href="tel:+79826488666" className={styles.phoneText}>
+            +79826488666
+          </a>
         </div>
       </div>
     </header>

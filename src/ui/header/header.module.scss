@@ -1,6 +1,6 @@
 .header {
   @apply bg-red flex items-center justify-between px-3 ;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.35)  5px 15px;
 
   .logoContainer {
     @apply flex items-center;
@@ -34,30 +34,6 @@
         }
         @media (min-width: 1400px) {
           @apply text-[15px];
-        }
-      }
-    }
-  }
-
-  .navbar {
-    @media (max-width: 768px) {
-      @apply hidden;
-    }
-    .list {
-      @apply flex items-center gap-12;
-
-      .listItem {
-        @apply text-[25px] text-yellow font-semibold;
-
-        &:hover {
-          @apply text-yellow-hover;
-        }
-
-        @media (min-width: 1px) {
-          @apply text-[14px];
-        }
-        @media (min-width: 1400px) {
-          @apply text-[25px];
         }
       }
     }
