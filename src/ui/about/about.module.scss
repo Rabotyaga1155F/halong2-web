@@ -1,0 +1,63 @@
+.aboutContainer {
+  @apply -mt-1 flex flex-col items-center justify-center;
+  background-size: cover;
+  background-image: url("../../assets/images/bg-image.png");
+
+  .aboutTitle {
+    @apply text-yellow text-[50px] font-light px-12 rounded-[15px] text-center inline-block mt-[16px];
+    background: black;
+    opacity: 0.8;
+
+    @media (max-width: 600px) {
+      @apply text-[20px];
+    }
+
+    @media (max-width: 1200px) {
+      @apply text-[35px];
+    }
+  }
+
+  .gridAboutContainer {
+    @apply flex flex-row w-full;
+
+    @media (max-width: 800px) {
+      @apply flex-col;
+    }
+
+    .leftAbout, .rightAbout {
+      @apply w-1/2 py-2 flex flex-col items-center;
+
+      @media (max-width: 800px) {
+        @apply w-full;
+      }
+
+
+      .aboutName {
+        @apply text-[40px] text-yellow px-12 rounded-[15px] text-center;
+        background: black;
+        opacity: 0.8;
+
+        @media (max-width: 600px) {
+          @apply text-[18px];
+        }
+
+        @media (max-width: 1200px) {
+          @apply text-[25px];
+        }
+      }
+
+      .map {
+        @apply px-32 my-6;
+
+        @media (min-width: 1px) {
+          @apply px-8;
+
+        }
+
+        @media (min-width: 1200px) {
+          @apply px-16;
+        }
+      }
+    }
+  }
+}

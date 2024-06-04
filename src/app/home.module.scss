@@ -1,0 +1,143 @@
+.container {
+  @apply w-full;
+
+  .startCont {
+    @apply h-screen relative flex flex-col items-center;
+    background-size: cover;
+    background-image: url("../assets/images/bg-image.png");
+
+    &::before {
+      content: "";
+      @apply absolute inset-0 bg-black opacity-50;
+      z-index: 1;
+    }
+
+    .title {
+      @apply text-yellow text-[60px] text-center relative;
+      z-index: 2;
+    }
+
+    .menuButton {
+      @apply bg-red text-yellow px-32 rounded-xl py-5 relative text-2xl font-semibold inline-block mt-[500px];
+      z-index: 2;
+
+      @media (min-width: 1px) {
+        @apply px-4;
+      }
+
+      @media (min-width: 400px) {
+        @apply px-8;
+      }
+
+      @media (min-width: 768px) {
+        @apply px-12;
+      }
+
+      @media (min-width: 1024px) {
+        @apply px-16;
+      }
+
+      @media (min-width: 1280px) {
+        @apply px-32;
+      }
+    }
+  }
+
+  .bestProductContainer {
+    @apply -mt-1;
+    background-size: cover;
+    background-image: url("../assets/images/best-products-bg.png");
+
+    .bestProductTitle {
+      @apply text-center italic text-yellow text-[65px];
+
+      @media (min-width: 1px) {
+        @apply text-[32px] py-3;
+
+      }
+      @media (min-width: 1240px) {
+        @apply text-[60px];
+      }
+    }
+
+    .gridContainer {
+      @apply flex flex-row py-3;
+
+      @media (max-width: 600px) {
+        @apply flex-col;
+      }
+
+      .left {
+        @apply w-1/2 py-8 flex items-center justify-center;
+
+        @media (max-width: 600px) {
+          @apply w-full;
+        }
+
+        .image {
+          @apply h-[500px] w-[500px];
+
+          @media (min-width: 1px) {
+            @apply h-[250px] w-[250px];
+
+          }
+          @media (min-width: 1400px) {
+            @apply h-[500px] w-[500px];
+          }
+        }
+      }
+
+      .right {
+        @apply w-1/2 my-auto;
+
+        @media (max-width: 600px) {
+          @apply w-full;
+        }
+
+        .description {
+          @apply text-yellow text-[20px] font-light italic mx-40;
+
+          @media (min-width: 1px) {
+            @apply mx-12 text-[14px];
+
+          }
+          @media (min-width: 1400px) {
+            @apply mx-40 text-[20px];
+          }
+        }
+
+        .composition {
+          @apply text-yellow text-[30px] font-light text-center;
+
+          @media (min-width: 1px) {
+            @apply text-[20px];
+
+          }
+          @media (min-width: 1400px) {
+            @apply text-[30px];
+          }
+        }
+
+        .priceContainer {
+          @apply flex items-center justify-center gap-24 pt-16;
+
+          .priceText {
+            @apply text-[40px] text-yellow;
+
+
+            @media (min-width: 1px) {
+              @apply text-[20px];
+
+            }
+            @media (min-width: 1400px) {
+              @apply text-[40px];
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+
+}
