@@ -19,7 +19,7 @@ const Menu = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          `http://localhost:5095/api/Dish?page=${page}&pageSize=10`,
+          `${process.env.NEXT_PUBLIC_BACK}/api/Dish?page=${page}&pageSize=10`,
         );
         const newDishes = response.data;
         setDishes(newDishes);
