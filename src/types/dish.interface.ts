@@ -1,10 +1,10 @@
 export interface Dish {
-  dishId: number;
+  dish_id: number;
   name: string;
-  categoryId: number;
+  category_id: number;
   description: string;
   image: any;
   price: number;
-  engName: string;
+  eng_name: string;
   quantity: string;
 }

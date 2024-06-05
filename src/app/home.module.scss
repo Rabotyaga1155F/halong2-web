@@ -18,7 +18,7 @@
     }
 
     .menuButton {
-      @apply bg-red text-yellow px-32 rounded-xl py-5 relative text-2xl font-semibold inline-block mt-[500px];
+      @apply bg-red text-yellow px-32 rounded-xl py-5 relative text-2xl font-semibold inline-block my-auto;
       z-index: 2;
 
       @media (min-width: 1px) {

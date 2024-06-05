@@ -3,12 +3,12 @@ import styles from "./menu-item.module.scss";
 import Image from "next/image";
 
 interface IMenuItemProps {
-  engName: string;
+  eng_name: string;
   image: any;
   description: string;
   quantity: string;
   price: number;
-  categoryId: number;
+  category_id: number;
 }
 
 const MenuItem: FC<IMenuItemProps> = ({
@@ -16,21 +16,21 @@ const MenuItem: FC<IMenuItemProps> = ({
   quantity,
   image,
   description,
-  engName,
-  categoryId,
+  eng_name,
+  category_id,
 }) => {
   return (
     <article className={styles.container}>
-      <h1 className={styles.menuItemTitle}>{engName}</h1>
+      <h1 className={styles.menuItemTitle}>{eng_name}</h1>
       <Image
         width={300}
         height={300}
-        className={categoryId !== 9 ? styles.image : styles.smoothieimage}
+        className={category_id !== 9 ? styles.image : styles.smoothieimage}
         src={image}
-        alt={engName}
+        alt={eng_name}
       />
 
-      {description !== " " && (
+      {description !== "" && (
         <>
           <h3 className={styles.composition}>Описание:</h3>
           <p className={styles.description}>{description}</p>
