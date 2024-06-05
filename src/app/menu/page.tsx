@@ -19,7 +19,7 @@ const Menu = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_BACK}/api/Dish?page=${page}&pageSize=10`,
+          `${process.env.NEXT_PUBLIC_BACK}/api/dishes?page=${page}&pageSize=10`,
         );
         const newDishes = response.data;
         setDishes(newDishes);
@@ -68,13 +68,13 @@ const Menu = () => {
             (dish) =>
               dish.image && (
                 <MenuItem
-                  key={dish.dishId}
-                  engName={dish.engName}
+                  key={dish.dish_id}
+                  eng_name={dish.eng_name}
                   image={`data:image/jpeg;base64,${dish.image}`}
                   description={dish.description}
                   quantity={dish.quantity}
                   price={dish.price}
-                  categoryId={dish.categoryId}
+                  category_id={dish.category_id}
                 />
               ),
           )}
