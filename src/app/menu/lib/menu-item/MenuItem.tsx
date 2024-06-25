@@ -7,7 +7,7 @@ interface IMenuItemProps {
   image: any;
   description: string;
   quantity: string;
-  price: number;
+  price: string;
   category_id: number;
 }
 
@@ -39,7 +39,7 @@ const MenuItem: FC<IMenuItemProps> = ({
 
       <div className={styles.priceContainer}>
         {quantity !== " " && <p className={styles.priceText}>{quantity}</p>}
-        {price !== 0 && <p className={styles.priceText}>{price} руб.</p>}
+        {price !== "0" && <p className={styles.priceText}>{price} руб.</p>}
       </div>
     </article>
   );

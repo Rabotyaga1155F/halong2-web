@@ -1,11 +1,10 @@
 "use client";
-
 import React, { useState, useEffect, useRef } from "react";
-import axios from "axios";
 import styles from "./menu.module.scss";
 import MenuItem from "@/app/menu/lib/menu-item/MenuItem";
 import { Dish } from "@/types/dish.interface";
 import { ThreeCircles } from "react-loader-spinner";
+import { data } from "@/data/data";
 
 const Menu = () => {
   const [dishes, setDishes] = useState<Dish[]>([]);
@@ -15,42 +14,29 @@ const Menu = () => {
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_BACK}/api/dishes?page=${page}&pageSize=10`,
-        );
-        const newDishes = response.data;
-        setDishes(newDishes);
-        console.log(newDishes);
-        if (newDishes.length < 10) {
-          setHasMore(false);
-        } else {
-          setHasMore(true);
-        }
-      } catch (error) {
-        alert(error);
-      }
-      setLoading(false);
-    };
-
-    fetchData();
-
-    if (menuRef.current) {
-      menuRef.current.scrollIntoView();
-    }
+    loadDishes();
   }, [page]);
+
+  const loadDishes = () => {
+    setLoading(true);
+    setTimeout(() => {
+      const startIndex = (page - 1) * 10;
+      const slicedDishes = data.slice(startIndex, startIndex + 10);
+      setDishes(slicedDishes);
+      setLoading(false);
+      setHasMore(data.length > startIndex + 10);
+    }, 1000);
+  };
 
   const nextPage = () => {
     if (hasMore) {
-      setPage((prevPage) => prevPage + 1);
+      setPage(page + 1);
     }
   };
 
   const prevPage = () => {
     if (page > 1) {
-      setPage((prevPage) => prevPage - 1);
+      setPage(page - 1);
     }
   };
 
@@ -64,20 +50,17 @@ const Menu = () => {
 
       <section id="menu" className={styles.menuContainer} ref={menuRef}>
         <div className={styles.menu}>
-          {dishes.map(
-            (dish) =>
-              dish.image && (
-                <MenuItem
-                  key={dish.dish_id}
-                  eng_name={dish.eng_name}
-                  image={`data:image/jpeg;base64,${dish.image}`}
-                  description={dish.description}
-                  quantity={dish.quantity}
-                  price={dish.price}
-                  category_id={dish.category_id}
-                />
-              ),
-          )}
+          {dishes.map((dish) => (
+            <MenuItem
+              key={dish.dish_id}
+              eng_name={dish.eng_name}
+              image={dish.image}
+              description={dish.description}
+              quantity={dish.quantity}
+              price={dish.price}
+              category_id={dish.category_id}
+            />
+          ))}
         </div>
         {loading && (
           <div className={styles.loader}>
