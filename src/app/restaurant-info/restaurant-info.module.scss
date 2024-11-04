@@ -1,0 +1,74 @@
+.container {
+  @apply w-full;
+
+  .startCont {
+    @apply h-screen relative flex flex-col items-center;
+    background-size: cover;
+    background-image: url("../../assets/images/bg-image.png");
+
+    &::before {
+      content: "";
+      @apply absolute inset-0 bg-black opacity-50;
+      z-index: 1;
+    }
+
+    .title {
+      @apply text-yellow text-[60px] text-center relative;
+      z-index: 2;
+    }
+  }
+
+  .secondContainer {
+    @apply -mt-1;
+    background-size: cover;
+    background-image: url("../../assets/images/best-products-bg.png");
+
+    .secondContainerTitleWrapper {
+      @apply mx-40 py-12;
+
+      @media (max-width: 870px) {
+        @apply mx-20;
+      }
+
+      @media (max-width: 600px) {
+        @apply mx-4;
+      }
+
+      .secondContainerTitle {
+        @apply text-4xl text-yellow;
+
+        @media (max-width: 600px) {
+          @apply text-2xl;
+        }
+      }
+
+      .gridContainer {
+        @apply flex flex-row py-3 gap-6;
+
+        @media (max-width: 870px) {
+          @apply flex-col;
+        }
+
+        .left {
+          @apply w-7/12 py-8 flex items-center justify-center;
+
+          @media (max-width: 870px) {
+            @apply w-full h-[500px];
+          }
+
+          .map {
+            border-radius: 5px;
+          }
+        }
+
+        .right {
+          @apply w-5/12 my-auto;
+
+          @media (max-width: 870px) {
+            @apply w-full;
+          }
+        }
+      }
+    }
+  }
+}

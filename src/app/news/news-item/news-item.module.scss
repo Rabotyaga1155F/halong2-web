@@ -1,0 +1,26 @@
+.mainWrapper {
+  @apply border-2 border-red w-[540px] h-auto rounded-2xl;
+
+  @media (min-width: 1px) {
+    @apply w-[290px] h-auto;
+  }
+  @media (min-width: 800px) {
+    @apply border-2 border-red w-[540px] h-auto rounded-2xl;
+  }
+
+  .newsImage {
+    @apply h-[200px] w-full rounded-t-2xl;
+  }
+
+  .textWrapper {
+    @apply m-4;
+
+    .newsTitle {
+      @apply text-yellow text-[16px] font-medium;
+    }
+
+    .newsParagraph {
+      @apply text-yellow text-[14px] pt-3;
+    }
+  }
+}
