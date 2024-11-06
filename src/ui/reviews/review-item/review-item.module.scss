@@ -1,6 +1,10 @@
 .reviewItemContainer {
   @apply w-full p-6 border-b border-red;
 
+  .userIcon {
+    @apply py-3;
+  }
+
   .starsTitle {
     @apply text-yellow;
   }

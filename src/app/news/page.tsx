@@ -5,10 +5,6 @@ import NewsItem from "@/app/news/news-item/NewsItem";
 import { NewsType } from "@/types/base.types";
 import axios from "axios";
 
-interface INewsResponse {
-  data: NewsType[];
-}
-
 const News: FC = () => {
   const [newsLoadCounter, setNewsLoadCounter] = useState(4);
   const [news, setNews] = useState<NewsType[]>([]);
@@ -19,11 +15,11 @@ const News: FC = () => {
   }, []);
 
   const fetchNews = () => {
-    axios.get<NewsType>("/api/news").then((res: INewsResponse) => {
+    axios.get<any>("/api/news").then((res: any) => {
       console.log(res);
       setNews(
         res.data.sort(
-          (a, b) =>
+          (a: any, b: any) =>
             new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
         ),
       );

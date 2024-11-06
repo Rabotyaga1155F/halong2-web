@@ -5,10 +5,6 @@ import ReviewItem from "@/ui/reviews/review-item/ReviewItem";
 import { ReviewType } from "@/types/base.types";
 import axios from "axios";
 
-interface IReviewsResponse {
-  data: ReviewType[];
-}
-
 const Reviews: FC = () => {
   const [newsLoadCounter, setNewsLoadCounter] = useState(5);
   const [reviews, setReviews] = useState<ReviewType[]>([]);
@@ -23,10 +19,10 @@ const Reviews: FC = () => {
   }, []);
 
   const fetchReviews = () => {
-    axios.get<ReviewType>("/api/reviews").then((res: IReviewsResponse) => {
+    axios.get<any>("/api/reviews").then((res: any) => {
       setReviews(
         res.data.sort(
-          (a, b) =>
+          (a: any, b: any) =>
             new Date(b.reviewDate).getTime() - new Date(a.reviewDate).getTime(),
         ),
       );
