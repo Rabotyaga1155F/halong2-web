@@ -23,6 +23,10 @@
     background-size: cover;
     background-image: url("../../assets/images/best-products-bg.png");
 
+    .loadingTitle {
+      @apply text-yellow text-3xl py-12 text-center;
+    }
+
     .newsWrapper {
       @apply grid grid-cols-2 gap-4 py-6 mx-auto;
 

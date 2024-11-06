@@ -7,13 +7,20 @@ interface INewsItemProps {
   imageUrl: string;
   newsTitle: string;
   newsParagraph: string;
+  dateTime: string;
 }
 
 const NewsItem: FC<INewsItemProps> = ({
   newsParagraph,
   newsTitle,
   imageUrl,
+  dateTime,
 }) => {
+  const truncatedParagraph =
+    newsParagraph.length > 435
+      ? `${newsParagraph.slice(0, 435)}...`
+      : newsParagraph;
+
   return (
     <div className={styles.mainWrapper}>
       <Image
@@ -25,7 +32,8 @@ const NewsItem: FC<INewsItemProps> = ({
       />
       <div className={styles.textWrapper}>
         <h2 className={styles.newsTitle}>{newsTitle}</h2>
-        <p className={styles.newsParagraph}>{newsParagraph}</p>
+        <p className={styles.newsParagraph}>{truncatedParagraph}</p>
+        <p className={styles.dateTimeParagraph}>{dateTime}</p>
       </div>
     </div>
   );
