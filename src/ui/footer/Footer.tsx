@@ -4,8 +4,8 @@ import styles from "./footer.module.scss";
 import Image from "next/image";
 
 import vk from "@/assets/icons/vk.svg";
-import inst from "@/assets/icons/inst.svg";
-import facebook from "@/assets/icons/facebook.svg";
+import telegram from "@/assets/icons/telegram-app.png";
+import Link from "next/link";
 
 const Footer: FC = () => {
   return (
@@ -15,9 +15,12 @@ const Footer: FC = () => {
           Присоединяйтесь к нам соцсетях
         </h4>
         <div className={styles.footerIconsCont}>
-          <Image className={styles.icon} src={vk} alt="vk" />
-          <Image className={styles.icon} src={inst} alt="inst" />
-          <Image className={styles.icon} src={facebook} alt="facebook" />
+          <Link target={"_blank"} href={"https://vk.com/halong2_ru"}>
+            <Image className={styles.icon} src={vk} alt="vk" />
+          </Link>
+          <Link target={"_blank"} href={"https://t.me/halong2_ru"}>
+            <Image className={styles.icon} src={telegram} alt="telegram" />
+          </Link>
         </div>
       </div>
     </footer>
