@@ -5,31 +5,35 @@ import MenuItem from "@/app/menu/lib/menu-item/MenuItem";
 import { Dish } from "@/types/dish.interface";
 import { ThreeCircles } from "react-loader-spinner";
 import { data } from "@/data/data";
+import { categories } from "@/data/categories";
 
 const Menu = () => {
-  const [dishes, setDishes] = useState<Dish[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
+  const [filteredDishes, setFilteredDishes] = useState<Dish[]>([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
-  const [hasMore, setHasMore] = useState(true);
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     loadDishes();
-  }, [page]);
+    setPage(1);
+  }, [selectedCategory]);
 
   const loadDishes = () => {
     setLoading(true);
     setTimeout(() => {
-      const startIndex = (page - 1) * 10;
-      const slicedDishes = data.slice(startIndex, startIndex + 10);
-      setDishes(slicedDishes);
+      const filtered = selectedCategory
+        ? data.filter((dish) => dish.category_id === selectedCategory)
+        : data;
+      setFilteredDishes(filtered);
       setLoading(false);
-      setHasMore(data.length > startIndex + 10);
-    }, 1000);
+    }, 500);
   };
 
+  const paginatedDishes = filteredDishes.slice((page - 1) * 10, page * 10);
+
   const nextPage = () => {
-    if (hasMore) {
+    if (page * 10 < filteredDishes.length) {
       setPage(page + 1);
     }
   };
@@ -49,8 +53,27 @@ const Menu = () => {
       </section>
 
       <section id="menu" className={styles.menuContainer} ref={menuRef}>
+        <div className={styles.filterContainer}>
+          <h3 className={styles.filterName}>Поиск по категориям</h3>
+          <select
+            className={styles.dropdown}
+            onChange={(e) =>
+              setSelectedCategory(
+                e.target.value ? Number(e.target.value) : null,
+              )
+            }
+            value={selectedCategory ?? ""}
+          >
+            {categories.map((category) => (
+              <option key={category.id ?? "all"} value={category.id ?? ""}>
+                {category.name}
+              </option>
+            ))}
+          </select>
+        </div>
+
         <div className={styles.menu}>
-          {dishes.map((dish) => (
+          {paginatedDishes.map((dish) => (
             <MenuItem
               key={dish.dish_id}
               eng_name={dish.eng_name}
@@ -62,6 +85,7 @@ const Menu = () => {
             />
           ))}
         </div>
+
         {loading && (
           <div className={styles.loader}>
             <ThreeCircles
@@ -70,15 +94,14 @@ const Menu = () => {
               width="100"
               color="red"
               ariaLabel="three-circles-loading"
-              wrapperStyle={{}}
-              wrapperClass=""
             />
           </div>
         )}
+
         <div className={styles.pagination}>
           <button
             onClick={prevPage}
-            disabled={page === 1}
+            disabled={page === 1 || loading}
             className={styles.menuButton}
           >
             Назад
@@ -86,7 +109,7 @@ const Menu = () => {
           <span className={styles.pageNumber}>{page}</span>
           <button
             onClick={nextPage}
-            disabled={!hasMore}
+            disabled={page * 10 >= filteredDishes.length || loading}
             className={styles.menuButton}
           >
             Далее
