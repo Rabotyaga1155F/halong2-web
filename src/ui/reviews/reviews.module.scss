@@ -1,0 +1,105 @@
+.reviewsContainer {
+  @apply -mt-1 px-20 pb-12;
+  background-size: cover;
+  background-image: url("../../assets/images/best-products-bg.png");
+
+  @media (max-width: 870px) {
+    @apply px-4;
+  }
+
+  .reviewsTitle {
+    @apply text-center italic text-yellow text-[65px];
+
+    @media (min-width: 1px) {
+      @apply text-[32px] py-3;
+    }
+    @media (min-width: 1240px) {
+      @apply text-[60px];
+    }
+  }
+
+  .gridContainer {
+    @apply flex flex-row py-3 gap-6;
+
+    @media (max-width: 870px) {
+      @apply flex-col;
+    }
+
+    .left {
+      @apply w-7/12 py-8 flex-col border-2 border-red px-12 overflow-auto rounded;
+
+      @media (max-width: 870px) {
+        @apply w-full h-[500px] px-4;
+      }
+
+      .moreButton {
+        @apply text-yellow/70 pt-8 underline inline-block w-full mx-auto;
+      }
+    }
+
+    .right {
+      @apply w-5/12;
+
+      @media (max-width: 870px) {
+        @apply w-full;
+      }
+
+      .writeTitle {
+        @apply text-yellow text-center font-bold text-xl;
+
+        @media (min-width: 1px) {
+          @apply text-[14px];
+        }
+
+        @media (min-width: 400px) {
+          @apply text-xl;
+        }
+
+        @media (min-width: 1200px) {
+          @apply text-xl;
+        }
+      }
+
+      .nameInput {
+        @apply px-5 py-3 rounded-xl bg-[#FFFEEB] w-1/2 block mx-auto my-6 placeholder-black;
+
+        @media (min-width: 1px) {
+          @apply w-[200px];
+        }
+
+        @media (min-width: 400px) {
+          @apply w-[300px];
+        }
+
+        @media (min-width: 1200px) {
+          @apply w-1/2;
+        }
+      }
+
+      .submitButton {
+        @apply block mx-auto bg-red text-yellow px-16 rounded-xl py-2.5  relative text-xl font-semibold;
+        z-index: 2;
+
+        @media (min-width: 1px) {
+          @apply px-4;
+        }
+
+        @media (min-width: 400px) {
+          @apply px-4;
+        }
+
+        @media (min-width: 768px) {
+          @apply px-6;
+        }
+
+        @media (min-width: 1024px) {
+          @apply px-8;
+        }
+
+        @media (min-width: 1280px) {
+          @apply px-16;
+        }
+      }
+    }
+  }
+}

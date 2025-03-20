@@ -3,6 +3,8 @@ import Image from "next/image";
 
 import tomYam from "@/assets/images/tomYam.png";
 import Link from "next/link";
+import About from "@/ui/about/About";
+import Reviews from "@/ui/reviews/Reviews";
 
 export default function Home() {
   return (
@@ -42,6 +44,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <About />
+      <Reviews />
     </main>
   );
 }

@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import styles from "./about.module.scss";
+import Link from "next/link";
 
 const About: FC = () => {
   return (
@@ -15,6 +16,9 @@ const About: FC = () => {
             width="100%"
             height="450"
           ></iframe>
+          <Link href={"/restaurant-info"} className={styles.moreButton}>
+            Подробнее
+          </Link>
         </div>
         <div className={styles.rightAbout}>
           <h3 className={styles.aboutName}>Вайнера 9а</h3>
@@ -25,6 +29,9 @@ const About: FC = () => {
             width="100%"
             height="450"
           ></iframe>
+          <Link href={"/restaurant-info"} className={styles.moreButton}>
+            Подробнее
+          </Link>
         </div>
       </div>
     </section>

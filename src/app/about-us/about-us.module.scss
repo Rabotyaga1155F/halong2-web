@@ -1,0 +1,228 @@
+.container {
+  @apply w-full;
+
+  .startCont {
+    @apply h-screen relative flex flex-col items-center;
+    background-size: cover;
+    background-image: url("../../assets/images/bg-image.png");
+
+    &::before {
+      content: "";
+      @apply absolute inset-0 bg-black opacity-50;
+      z-index: 1;
+    }
+
+    .title {
+      @apply text-yellow text-[60px] text-center relative;
+      z-index: 2;
+    }
+  }
+
+  .secondContainer {
+    @apply -mt-1;
+    background-size: cover;
+    background-image: url("../../assets/images/best-products-bg.png");
+
+    .gridContainerFirst {
+      @apply flex flex-row py-3;
+
+      @media (max-width: 600px) {
+        @apply flex-col;
+      }
+
+      .left {
+        @apply w-1/2 py-8 flex items-center justify-center;
+
+        @media (max-width: 600px) {
+          @apply w-full;
+        }
+
+        .image {
+          @apply h-[500px] w-[700px];
+
+          @media (min-width: 1px) {
+            @apply h-[250px] w-[350px];
+          }
+          @media (min-width: 1400px) {
+            @apply h-[500px] w-[700px];
+          }
+        }
+      }
+
+      .right {
+        @apply w-1/2 my-auto;
+
+        @media (max-width: 600px) {
+          @apply w-full;
+        }
+
+        .description {
+          @apply text-yellow text-[26px] font-light italic mx-40;
+
+          @media (min-width: 1px) {
+            @apply mx-12 text-[16px];
+          }
+          @media (min-width: 1400px) {
+            @apply mx-40 text-[22px];
+          }
+        }
+      }
+    }
+    .gridContainerSecond {
+      @apply flex flex-row-reverse py-3;
+
+      @media (max-width: 600px) {
+        @apply flex-col;
+      }
+
+      .left {
+        @apply w-1/2 py-8 flex items-center justify-center;
+
+        @media (max-width: 600px) {
+          @apply w-full;
+        }
+
+        .image {
+          @apply h-[500px] w-[700px];
+
+          @media (min-width: 1px) {
+            @apply h-[250px] w-[350px];
+          }
+          @media (min-width: 1400px) {
+            @apply h-[500px] w-[700px];
+          }
+        }
+      }
+
+      .right {
+        @apply w-1/2 my-auto;
+
+        @media (max-width: 600px) {
+          @apply w-full;
+        }
+
+        .description {
+          @apply text-yellow text-[26px] font-light italic mx-40;
+
+          @media (min-width: 1px) {
+            @apply mx-12 text-[16px];
+          }
+          @media (min-width: 1400px) {
+            @apply mx-40 text-[22px];
+          }
+        }
+      }
+    }
+
+    .centerView {
+      @apply py-8 mx-40;
+
+      @media (min-width: 1px) {
+        @apply mx-12;
+      }
+      @media (min-width: 1400px) {
+        @apply mx-40;
+      }
+
+      .centerViewMiddleText {
+        @apply text-yellow text-center text-[32px] mx-40;
+
+        @media (min-width: 1px) {
+          @apply mx-12 text-[20px];
+        }
+        @media (min-width: 1400px) {
+          @apply mx-40 text-[28px];
+        }
+      }
+      .centerViewParagraphText {
+        @apply text-yellow text-center py-6;
+
+        @apply text-yellow text-[26px];
+
+        @media (min-width: 1px) {
+          @apply text-[16px];
+        }
+        @media (min-width: 1400px) {
+          @apply text-[22px];
+        }
+      }
+      .centerViewImage {
+        @apply mx-auto mt-4 h-[500px] w-[700px];
+
+        @media (min-width: 1px) {
+          @apply h-[250px] w-[350px];
+        }
+        @media (min-width: 1400px) {
+          @apply h-[500px] w-[700px];
+        }
+      }
+    }
+  }
+  .gridContainerThird {
+    @apply flex flex-row pb-3 pt-12;
+
+    @media (max-width: 600px) {
+      @apply flex-col;
+    }
+
+    .left {
+      @apply w-1/2;
+
+      @media (max-width: 600px) {
+        @apply w-full;
+      }
+
+      .image {
+        @apply h-[500px] w-[700px] mx-auto;
+
+        @media (min-width: 1px) {
+          @apply h-[250px] w-[350px];
+        }
+        @media (min-width: 1400px) {
+          @apply h-[500px] w-[700px];
+        }
+      }
+
+      .description {
+        @apply text-yellow text-[26px] font-light italic mx-40 text-center py-5;
+
+        @media (min-width: 1px) {
+          @apply mx-12 text-[16px];
+        }
+        @media (min-width: 1400px) {
+          @apply mx-40 text-[22px];
+        }
+      }
+    }
+
+    .right {
+      @apply w-1/2;
+
+      @media (max-width: 600px) {
+        @apply w-full;
+      }
+
+      .image {
+        @apply h-[500px] w-[700px] mx-auto;
+
+        @media (min-width: 1px) {
+          @apply h-[250px] w-[350px];
+        }
+        @media (min-width: 1400px) {
+          @apply h-[500px] w-[700px];
+        }
+      }
+
+      .description {
+        @apply text-yellow text-[26px] font-light italic mx-40 text-center py-5;
+
+        @media (min-width: 1px) {
+          @apply mx-12 text-[16px];
+        }
+        @media (min-width: 1400px) {
+          @apply mx-40 text-[22px];
+        }
+      }
+    }
+  }
+}

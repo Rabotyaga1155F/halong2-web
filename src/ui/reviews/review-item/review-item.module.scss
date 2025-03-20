@@ -1,0 +1,23 @@
+.reviewItemContainer {
+  @apply w-full p-6 border-b border-red;
+
+  .userIcon {
+    @apply py-3;
+  }
+
+  .starsTitle {
+    @apply text-yellow;
+  }
+
+  .reviewName {
+    @apply text-yellow text-xl font-medium pt-2;
+  }
+
+  .reviewParagraph {
+    @apply text-yellow break-words pt-4;
+  }
+
+  .dateTimeSpan {
+    @apply text-yellow inline-block w-full text-right py-3;
+  }
+}

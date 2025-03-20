@@ -23,11 +23,32 @@
 
     background-image: url("../../assets/images/best-products-bg.png");
 
-    .menu{
-      @apply flex justify-around flex-row flex-wrap py-12 ;
+    .filterContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+
+      .filterName {
+        @apply text-yellow text-xl mr-5;
+      }
     }
 
-    .pagination{
+    .dropdown {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .menu {
+      @apply flex justify-around flex-row flex-wrap py-12;
+    }
+
+    .pagination {
       @apply flex justify-center items-center;
       .menuButton {
         @apply bg-red text-yellow rounded-xl py-3 mb-6 mx-auto text-xl font-semibold inline-block px-8;
@@ -56,11 +77,11 @@
         }
       }
 
-      .menuButton:disabled{
+      .menuButton:disabled {
         background-color: transparent;
         color: transparent;
       }
-      .pageNumber{
+      .pageNumber {
         @apply text-red text-5xl bg-yellow px-3 rounded-xl mb-4;
 
         @media (min-width: 1px) {
@@ -85,10 +106,8 @@
       }
     }
 
-    .loader{
+    .loader {
       @apply flex justify-center items-center py-3;
     }
-
-
   }
 }

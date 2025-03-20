@@ -1,0 +1,48 @@
+.mainWrapper {
+  @apply border-2 border-red rounded-md p-6 my-6;
+
+  .restaurantName {
+    @apply text-yellow text-3xl font-bold;
+
+    @media (min-width: 1px) {
+      @apply text-xl;
+    }
+    @media (min-width: 1400px) {
+      @apply text-3xl;
+    }
+  }
+
+  .restaurantAddress {
+    @apply text-yellow text-xl pt-4;
+  }
+
+  .dateTimeWrapper {
+    @apply flex gap-5;
+
+    @media (min-width: 1px) {
+      @apply flex-col;
+    }
+    @media (min-width: 1400px) {
+      @apply flex-row;
+    }
+
+    .dateTimeWrapperItem {
+      @apply border-2 border-red rounded-md p-6 w-1/2 my-6;
+
+      @media (min-width: 1px) {
+        @apply w-full;
+      }
+      @media (min-width: 1400px) {
+        @apply w-1/2;
+      }
+
+      .restaurantAddressTitle {
+        @apply text-yellow text-xl pt-4;
+      }
+
+      .restaurantAddressTime {
+        @apply font-bold text-xl text-yellow py-4;
+      }
+    }
+  }
+}
