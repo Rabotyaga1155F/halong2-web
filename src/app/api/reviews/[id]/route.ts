@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
@@ -38,6 +38,33 @@ export async function POST(req: any) {
     return NextResponse.json(newReview, { status: 201 });
   } catch (error) {
     console.error("Ошибка создания отзыва:", error);
+    return NextResponse.json({ error: "Ошибка сервера" }, { status: 500 });
+  }
+}
+
+export async function PUT(
+  req: NextRequest,
+  { params }: { params: { id: string } },
+) {
+  try {
+    const { is_verified } = await req.json();
+    const reviewId = parseInt(params.id);
+
+    if (typeof is_verified !== "boolean") {
+      return NextResponse.json(
+        { error: "Некорректное значение is_verified" },
+        { status: 400 },
+      );
+    }
+
+    const updated = await prisma.reviews.update({
+      where: { id: reviewId },
+      data: { is_verified },
+    });
+
+    return NextResponse.json(updated, { status: 200 });
+  } catch (error) {
+    console.error("Ошибка при обновлении отзыва:", error);
     return NextResponse.json({ error: "Ошибка сервера" }, { status: 500 });
   }
 }

@@ -1,15 +1,15 @@
 export type NewsType = {
   id: number;
-  newsTitle: string;
-  newsParagraph: string;
-  imageUrl: string;
-  createdAt: Date;
+  news_title: string;
+  news_paragraph: string;
+  image_url: string;
+  created_at: Date;
 };
 
 export type ReviewType = {
   id: number;
   rating: number;
-  reviewName: string;
-  reviewText: string;
-  reviewDate: string;
+  review_name: string;
+  review_text: string;
+  created_at: string;
 };

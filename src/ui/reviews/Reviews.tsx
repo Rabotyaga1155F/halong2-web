@@ -20,10 +20,13 @@ const Reviews: FC = () => {
 
   const fetchReviews = () => {
     axios.get<any>("/api/reviews").then((res: any) => {
+      const verifiedReviews = res.data.filter(
+        (review: any) => review.is_verified === true,
+      );
       setReviews(
-        res.data.sort(
+        verifiedReviews.sort(
           (a: any, b: any) =>
-            new Date(b.reviewDate).getTime() - new Date(a.reviewDate).getTime(),
+            new Date(b.created_at).getTime() - new Date(a.created_at).getTime(),
         ),
       );
       setIsLoading(false);
@@ -35,9 +38,9 @@ const Reviews: FC = () => {
       .post("/api/reviews", {
         id: Math.floor(Math.random() * 10000000),
         rating: parseInt(rating, 10),
-        reviewName: name,
-        reviewText: message,
-        reviewDate: new Date().toISOString(),
+        review_name: name,
+        review_text: message,
+        created_at: new Date().toISOString(),
       })
       .then(function (response) {
         console.log("Отзыв успешно отправлен:", response.data);
@@ -59,9 +62,9 @@ const Reviews: FC = () => {
               <ReviewItem
                 id={review.id}
                 rating={review.rating}
-                reviewName={review.reviewName}
-                reviewText={review.reviewText}
-                reviewDate={new Date(review.reviewDate).toLocaleDateString()}
+                review_name={review.review_name}
+                review_text={review.review_text}
+                created_at={new Date(review.created_at).toLocaleDateString()}
               />
             ))}
             {reviews.length > newsLoadCounter ? (

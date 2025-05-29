@@ -20,7 +20,7 @@ const News: FC = () => {
       setNews(
         res.data.sort(
           (a: any, b: any) =>
-            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+            new Date(b.created_at).getTime() - new Date(a.created_at).getTime(),
         ),
       );
       setIsLoading(false);
@@ -43,10 +43,10 @@ const News: FC = () => {
               {news.slice(0, newsLoadCounter).map((item: NewsType) => (
                 <NewsItem
                   key={item.id}
-                  imageUrl={item.imageUrl}
-                  newsTitle={item.newsTitle}
-                  newsParagraph={item.newsParagraph}
-                  dateTime={new Date(item.createdAt).toLocaleDateString()}
+                  imageUrl={item.image_url}
+                  newsTitle={item.news_title}
+                  newsParagraph={item.news_paragraph}
+                  dateTime={new Date(item.created_at).toLocaleDateString()}
                 />
               ))}
             </div>

@@ -8,9 +8,9 @@ type IReviewItemProps = ReviewType;
 
 const ReviewItem: FC<IReviewItemProps> = ({
   id,
-  reviewName,
-  reviewDate,
-  reviewText,
+  review_name,
+  created_at,
+  review_text,
   rating,
 }) => {
   return (
@@ -23,9 +23,9 @@ const ReviewItem: FC<IReviewItemProps> = ({
         alt={"userIcon"}
       />
       <h4 className={styles.starsTitle}>Оценка: {rating}</h4>
-      <h2 className={styles.reviewName}>{reviewName}</h2>
-      <p className={styles.reviewParagraph}>{reviewText}</p>
-      <span className={styles.dateTimeSpan}>{reviewDate}</span>
+      <h2 className={styles.reviewName}>{review_name}</h2>
+      <p className={styles.reviewParagraph}>{review_text}</p>
+      <span className={styles.dateTimeSpan}>{created_at}</span>
     </div>
   );
 };

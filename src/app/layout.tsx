@@ -4,6 +4,11 @@ import "./globals.css";
 import Header from "@/ui/header/Header";
 import Footer from "@/ui/footer/Footer";
 
+import "primereact/resources/themes/bootstrap4-light-blue/theme.css";
+import "primereact/resources/primereact.min.css";
+import "primeicons/primeicons.css"; // иконки
+import "primeflex/primeflex.css"; // утилиты flex (опционально)
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

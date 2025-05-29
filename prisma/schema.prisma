@@ -15,17 +15,18 @@ datasource db {
 }
 
 model News {
-  id            Int      @id @default(autoincrement())
-  newsTitle     String
-  newsParagraph String
-  imageUrl      String
-  createdAt     DateTime @default(now())
+  id             Int      @id @default(autoincrement())
+  news_title     String
+  news_paragraph String
+  image_url      String
+  created_at     DateTime @default(now())
 }
 
 model Reviews {
-  id         Int      @id @default(autoincrement())
-  rating     Int
-  reviewName String
-  reviewText String
-  reviewDate DateTime @default(now())
+  id          Int      @id @default(autoincrement())
+  rating      Int
+  review_name String
+  review_text String
+  created_at  DateTime @default(now())
+  is_verified Boolean  @default(false)
 }

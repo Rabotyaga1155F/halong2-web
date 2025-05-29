@@ -8,8 +8,13 @@ import geoIcon from "@/assets/icons/geo-icon.svg";
 import phoneIcon from "@/assets/icons/phone-icon.svg";
 import Link from "next/link";
 import Nav from "@/ui/header/nav/Nav";
+import { usePathname } from "next/navigation";
 
 const Header: FC = () => {
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/admin")) return null;
+
   return (
     <header className={styles.header}>
       <Link href={"/"} className={styles.logoContainer}>

@@ -1,3 +1,5 @@
+"use client";
+
 import React, { FC } from "react";
 
 import styles from "./footer.module.scss";
@@ -6,8 +8,12 @@ import Image from "next/image";
 import vk from "@/assets/icons/vk.svg";
 import telegram from "@/assets/icons/telegram-app.png";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Footer: FC = () => {
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/admin")) return null;
   return (
     <footer id={"footer"} className={styles.footer}>
       <div className={styles.footerBlock}>
