@@ -6,8 +6,8 @@ import Footer from "@/ui/footer/Footer";
 
 import "primereact/resources/themes/bootstrap4-light-blue/theme.css";
 import "primereact/resources/primereact.min.css";
-import "primeicons/primeicons.css"; // иконки
-import "primeflex/primeflex.css"; // утилиты flex (опционально)
+import "primeicons/primeicons.css";
+import "primeflex/primeflex.css";
 
 const inter = Inter({ subsets: ["latin"] });
 

@@ -15,6 +15,10 @@ const Menu = () => {
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    localStorage.removeItem("orderSaved");
+  }, []);
+
+  useEffect(() => {
     loadDishes();
     setPage(1);
   }, [selectedCategory]);
@@ -74,15 +78,7 @@ const Menu = () => {
 
         <div className={styles.menu}>
           {paginatedDishes.map((dish) => (
-            <MenuItem
-              key={dish.dish_id}
-              eng_name={dish.eng_name}
-              image={dish.image}
-              description={dish.description}
-              quantity={dish.quantity}
-              price={dish.price}
-              category_id={dish.category_id}
-            />
+            <MenuItem key={dish.dish_id} dish={dish} />
           ))}
         </div>
 

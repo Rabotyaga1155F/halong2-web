@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./home.module.scss";
 import Image from "next/image";
 
@@ -5,8 +7,13 @@ import tomYam from "@/assets/images/tomYam.png";
 import Link from "next/link";
 import About from "@/ui/about/About";
 import Reviews from "@/ui/reviews/Reviews";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    localStorage.removeItem("orderSaved");
+  }, []);
+
   return (
     <main className={styles.container}>
       <section className={styles.startCont}>

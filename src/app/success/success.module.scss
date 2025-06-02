@@ -1,0 +1,26 @@
+.container {
+  @apply w-full;
+
+  .startCont {
+    @apply h-screen relative flex flex-col items-center;
+    background-size: cover;
+    background-image: url("../../assets/images/bg-image.png");
+
+    &::before {
+      content: "";
+      @apply absolute inset-0 bg-black opacity-50;
+      z-index: 1;
+    }
+
+    .title {
+      @apply text-yellow text-[60px] text-center relative;
+      z-index: 2;
+    }
+  }
+
+  .secondContainer {
+    @apply -mt-1 flex flex-row justify-center;
+    background-size: cover;
+    background-image: url("../../assets/images/best-products-bg.png");
+  }
+}

@@ -226,3 +226,12 @@
     }
   }
 }
+
+.dropdown {
+  @apply min-w-[400px];
+  padding: 16px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  cursor: pointer;
+}

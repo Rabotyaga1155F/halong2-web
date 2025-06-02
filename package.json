@@ -11,6 +11,7 @@
   "dependencies": {
     "@prisma/client": "^5.15.0",
     "axios": "^1.7.7",
+    "base-64": "^1.0.0",
     "dotenv": "^16.4.5",
     "next": "14.2.3",
     "primeflex": "^4.0.0",
@@ -21,9 +22,11 @@
     "react-loader-spinner": "^6.1.6",
     "react-query": "^3.39.3",
     "sass": "^1.77.2",
-    "sharp": "^0.33.4"
+    "sharp": "^0.33.4",
+    "zustand": "^5.0.5"
   },
   "devDependencies": {
+    "@types/base-64": "^1.0.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

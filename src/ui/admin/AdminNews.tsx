@@ -188,7 +188,7 @@ const AdminNews = () => {
           header="Содержание"
           style={{ width: "15rem" }}
         />
-        <Column field="image_url" header="URL изображения" />
+
         <Column
           header="Действия"
           body={actionBodyTemplate}

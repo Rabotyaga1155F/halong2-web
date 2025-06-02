@@ -30,3 +30,14 @@ model Reviews {
   created_at  DateTime @default(now())
   is_verified Boolean  @default(false)
 }
+
+model Orders {
+  id             Int      @id @default(autoincrement())
+  customer_name  String
+  customer_phone String
+  status         String   @default("pending")
+  products       Json
+  total_price    Float
+  created_at     DateTime @default(now())
+  pickup_point   String
+}

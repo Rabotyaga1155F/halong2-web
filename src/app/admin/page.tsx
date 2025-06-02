@@ -3,12 +3,15 @@
 import React, { useEffect, useState } from "react";
 import AdminNews from "@/ui/admin/AdminNews";
 import AdminReviews from "@/ui/admin/AdminReviews";
+import AdminOrders from "@/ui/admin/AdminOrders";
 
 const Admin = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
-  const [activeTab, setActiveTab] = useState<"news" | "reviews">("news");
+  const [activeTab, setActiveTab] = useState<"news" | "reviews" | "orders">(
+    "news",
+  );
 
   const hardcodedLogin = "admin";
   const hardcodedPassword = "1234";
@@ -40,6 +43,8 @@ const Admin = () => {
         );
       case "reviews":
         return <AdminReviews />;
+      case "orders":
+        return <AdminOrders />;
       default:
         return null;
     }
@@ -51,7 +56,7 @@ const Admin = () => {
         <div className="flex items-center justify-center h-full px-4">
           <form
             onSubmit={handleLogin}
-            className="bg-white p-8 rounded-xl shadow-md w-full max-w-sm space-y-4"
+            className="bg-white  py-8 px-6 rounded-xl shadow-md w-full max-w-sm space-y-4"
           >
             <h2 className="text-2xl font-bold text-center text-gray-800">
               Вход в админ-панель
@@ -103,6 +108,17 @@ const Admin = () => {
               }`}
             >
               Отзывы
+            </button>
+
+            <button
+              onClick={() => setActiveTab("orders")}
+              className={`w-full text-left px-4 py-2 rounded-lg ${
+                activeTab === "orders"
+                  ? "bg-blue text-white"
+                  : "hover:bg-gray-100"
+              }`}
+            >
+              Заказы
             </button>
           </aside>
 

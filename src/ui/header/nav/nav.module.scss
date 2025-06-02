@@ -1,25 +1,53 @@
-
-
 .navbar {
   @media (max-width: 768px) {
-    @apply hidden;
+    display: none;
   }
+
   .list {
-    @apply flex items-center gap-12;
+    display: flex;
+    align-items: center;
+    gap: 3rem; // 48px
 
     .listItem {
-      @apply text-[25px] text-yellow font-semibold;
+      font-size: 23px;
+      color: #ffd700; // жёлтый
+      font-weight: 600;
+      transition: color 0.3s;
 
       &:hover {
-        @apply text-yellow-hover;
+        color: #e5c100; // жёлтый hover
       }
 
       @media (min-width: 1px) {
-        @apply text-[14px];
+        font-size: 14px;
       }
+
       @media (min-width: 1400px) {
-        @apply text-[25px];
+        font-size: 23px;
       }
     }
   }
+}
+
+.cartLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.cartBadge {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ffd700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cartCount {
+  color: red;
+  font-weight: bold;
+  font-size: 16px;
 }
