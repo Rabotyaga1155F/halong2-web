@@ -15,7 +15,7 @@ export async function GET() {
 
 export async function POST(req: any) {
   try {
-    const { id, rating, review_name, review_text, created_at } =
+    const { id, rating, review_name, review_text, created_at, user_id } =
       await req.json();
 
     if (!rating || !review_name || !review_text) {
@@ -27,6 +27,7 @@ export async function POST(req: any) {
 
     const newReview = await prisma.reviews.create({
       data: {
+        user_id: user_id,
         id: id,
         rating: rating,
         review_name: review_name,

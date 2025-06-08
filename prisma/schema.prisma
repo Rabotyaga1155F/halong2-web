@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider      = "prisma-client-js"
   binaryTargets = ["native", "debian-openssl-3.0.x"]
@@ -20,6 +14,8 @@ model News {
   news_paragraph String
   image_url      String
   created_at     DateTime @default(now())
+  author         User     @relation(fields: [author_id], references: [id])
+  author_id      Int
 }
 
 model Reviews {
@@ -29,6 +25,8 @@ model Reviews {
   review_text String
   created_at  DateTime @default(now())
   is_verified Boolean  @default(false)
+  user        User     @relation(fields: [user_id], references: [id])
+  user_id     Int
 }
 
 model Orders {
@@ -40,4 +38,26 @@ model Orders {
   total_price    Float
   created_at     DateTime @default(now())
   pickup_point   String
+  user           User     @relation(fields: [user_id], references: [id])
+  user_id        Int
+}
+
+model User {
+  id            Int       @id @default(autoincrement())
+  email         String    @unique
+  password_hash String
+  name          String?
+  phone         String?
+  created_at    DateTime  @default(now())
+  role          Role      @relation(fields: [role_id], references: [id])
+  role_id       Int
+  reviews       Reviews[]
+  orders        Orders[]
+  news          News[]
+}
+
+model Role {
+  id        Int    @id @default(autoincrement())
+  role_name String @unique
+  users     User[]
 }

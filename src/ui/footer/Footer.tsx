@@ -14,6 +14,8 @@ const Footer: FC = () => {
   const pathname = usePathname();
 
   if (pathname.startsWith("/admin")) return null;
+  if (pathname.startsWith("/auth")) return null;
+  if (pathname.startsWith("/reg")) return null;
   return (
     <footer id={"footer"} className={styles.footer}>
       <div className={styles.footerBlock}>
