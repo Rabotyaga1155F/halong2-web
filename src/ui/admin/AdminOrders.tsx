@@ -42,13 +42,10 @@ const AdminOrders: FC = () => {
   };
 
   useEffect(() => {
-    // Первоначальная загрузка данных
     fetchOrders();
 
-    // Устанавливаем интервал для периодического обновления
-    const intervalId = setInterval(fetchOrders, 5000); // 5 секунд
+    const intervalId = setInterval(fetchOrders, 5000);
 
-    // Очистка интервала при размонтировании компонента
     return () => clearInterval(intervalId);
   }, []);
 
@@ -66,7 +63,6 @@ const AdminOrders: FC = () => {
         throw new Error("Failed to complete order");
       }
 
-      // Обновляем список заказов после успешного завершения
       await fetchOrders();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to complete order");
@@ -75,7 +71,6 @@ const AdminOrders: FC = () => {
 
   const pendingOrders = orders.filter((order) => order.status === "pending");
 
-  // Разделение заказов по адресам
   const vaineraOrders = pendingOrders.filter(
     (order) => order.pickup_point === "Вайнера 9а",
   );
@@ -106,7 +101,6 @@ const AdminOrders: FC = () => {
       </div>
 
       <div className="flex gap-6">
-        {/* Колонка Вайнера 9а */}
         <div className="flex-1 bg-gray-50 p-4 rounded-lg">
           <h2 className="text-xl font-semibold mb-4 text-center">Вайнера 9а</h2>
           {vaineraOrders.length === 0 ? (
@@ -163,7 +157,6 @@ const AdminOrders: FC = () => {
           )}
         </div>
 
-        {/* Колонка Хохрякова 72 */}
         <div className="flex-1 bg-gray-50 p-4 rounded-lg">
           <h2 className="text-xl font-semibold mb-4 text-center">
             Хохрякова 72

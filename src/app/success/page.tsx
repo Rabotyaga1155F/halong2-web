@@ -8,6 +8,12 @@ const Success = () => {
   const { clearCart } = useCartStore();
   const [isSaved, setIsSaved] = useState(false);
   const [error, setError] = useState("");
+  const [isAuthorized, setIsAuthorized] = useState(false);
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    setIsAuthorized(!!user);
+  }, []);
 
   useEffect(() => {
     const saveOrder = async () => {
@@ -26,11 +32,20 @@ const Success = () => {
 
       const data = JSON.parse(raw);
 
+      const user = localStorage.getItem("user");
+      if (!user) {
+        setError("Требуется авторизация для сохранения заказа");
+        return;
+      }
+
+      const userObj = JSON.parse(user);
+
       try {
         const res = await fetch("/api/orders", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
+            user_id: userObj.id,
             customer_name: data.name,
             customer_phone: data.phone,
             pickup_point: data.selectedPoint,
@@ -45,7 +60,8 @@ const Success = () => {
         });
 
         if (!res.ok) {
-          throw new Error("Ошибка при сохранении заказа");
+          const errorData = await res.json();
+          throw new Error(errorData.error || "Ошибка при сохранении заказа");
         }
 
         clearCart();
@@ -57,8 +73,10 @@ const Success = () => {
       }
     };
 
-    saveOrder();
-  }, []);
+    if (isAuthorized) {
+      saveOrder();
+    }
+  }, [isAuthorized, clearCart]);
 
   return (
     <main className={styles.container}>
@@ -66,10 +84,20 @@ const Success = () => {
         <div className={"flex flex-col justify-center h-screen"}>
           {error ? (
             <>
-              <h1 className="text-3xl font-bold  mb-4 text-yellow text-center">
-                Ошибка
+              <h1 className="text-3xl font-bold mb-4 text-yellow text-center">
+                {error.includes("авторизация")
+                  ? "Требуется авторизация"
+                  : "Ошибка"}
               </h1>
-              <p className="text-lg  text-yellow">{error}</p>
+              <p className="text-lg text-yellow text-center mb-6">{error}</p>
+              {error.includes("авторизация") && (
+                <a
+                  href="/auth"
+                  className="inline-block bg-yellow text-red text-lg font-medium text-center px-6 py-3 rounded-xl"
+                >
+                  Войти или зарегистрироваться
+                </a>
+              )}
             </>
           ) : isSaved ? (
             <>
@@ -88,10 +116,12 @@ const Success = () => {
             </>
           ) : (
             <>
-              <h1 className="text-3xl font-bold text-yellow mb-4">
+              <h1 className="text-3xl font-bold text-yellow mb-4 text-center">
                 Подтверждение заказа...
               </h1>
-              <p className="text-lg text-gray-700">Пожалуйста, подождите.</p>
+              <p className="text-lg text-yellow text-center">
+                Пожалуйста, подождите.
+              </p>
             </>
           )}
         </div>

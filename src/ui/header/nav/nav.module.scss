@@ -6,16 +6,16 @@
   .list {
     display: flex;
     align-items: center;
-    gap: 3rem; // 48px
+    gap: 3rem;
 
     .listItem {
       font-size: 23px;
-      color: #ffd700; // жёлтый
+      color: #ffd700;
       font-weight: 600;
       transition: color 0.3s;
 
       &:hover {
-        color: #e5c100; // жёлтый hover
+        color: #e5c100;
       }
 
       @media (min-width: 1px) {

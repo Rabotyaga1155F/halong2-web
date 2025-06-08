@@ -13,6 +13,7 @@ export async function POST(req: NextRequest) {
       products,
       total_price,
       pickup_point,
+      user_id,
     } = body;
 
     if (
@@ -20,7 +21,8 @@ export async function POST(req: NextRequest) {
       !customer_phone ||
       !products ||
       !total_price ||
-      !pickup_point
+      !pickup_point ||
+      !user_id
     ) {
       return NextResponse.json(
         { error: "Missing required fields" },
@@ -30,6 +32,7 @@ export async function POST(req: NextRequest) {
 
     const newOrder = await prisma.orders.create({
       data: {
+        user_id,
         customer_name,
         customer_phone,
         products,

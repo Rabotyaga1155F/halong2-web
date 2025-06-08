@@ -28,6 +28,7 @@ export async function POST(request: Request) {
 
     const newNews = await prisma.news.create({
       data: {
+        author_id: 4,
         news_title: data.news_title,
         news_paragraph: data.news_paragraph,
         image_url: data.image_url,
