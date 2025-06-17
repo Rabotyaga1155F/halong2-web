@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { useCartStore } from "@/store/cartStore";
 import styles from "./success.module.scss";
 
@@ -8,12 +9,6 @@ const Success = () => {
   const { clearCart } = useCartStore();
   const [isSaved, setIsSaved] = useState(false);
   const [error, setError] = useState("");
-  const [isAuthorized, setIsAuthorized] = useState(false);
-
-  useEffect(() => {
-    const user = localStorage.getItem("user");
-    setIsAuthorized(!!user);
-  }, []);
 
   useEffect(() => {
     const saveOrder = async () => {
@@ -33,50 +28,36 @@ const Success = () => {
       const data = JSON.parse(raw);
 
       const user = localStorage.getItem("user");
-      if (!user) {
-        setError("Требуется авторизация для сохранения заказа");
-        return;
-      }
-
-      const userObj = JSON.parse(user);
+      const userId = user ? JSON.parse(user).id : 9999999;
 
       try {
-        const res = await fetch("/api/orders", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            user_id: userObj.id,
-            customer_name: data.name,
-            customer_phone: data.phone,
-            pickup_point: data.selectedPoint,
-            total_price: data.totalPrice,
-            products: data.cart.map((item: any, i: number) => ({
-              id: item.dish_id,
-              name: item.name,
-              quantity: data.quantities[i],
-              price: item.price,
-            })),
-          }),
+        await axios.post("/api/orders", {
+          user_id: userId,
+          customer_name: data.name,
+          customer_phone: data.phone,
+          pickup_point: data.selectedPoint,
+          total_price: data.totalPrice,
+          products: data.cart.map((item: any, i: number) => ({
+            id: item.dish_id,
+            name: item.name,
+            quantity: data.quantities[i],
+            price: item.price,
+          })),
         });
-
-        if (!res.ok) {
-          const errorData = await res.json();
-          throw new Error(errorData.error || "Ошибка при сохранении заказа");
-        }
 
         clearCart();
         localStorage.removeItem("orderData");
         localStorage.setItem("orderSaved", "true");
         setIsSaved(true);
       } catch (err: any) {
-        setError(err.message || "Неизвестная ошибка");
+        const message =
+          err?.response?.data?.error || err.message || "Неизвестная ошибка";
+        setError(message);
       }
     };
 
-    if (isAuthorized) {
-      saveOrder();
-    }
-  }, [isAuthorized, clearCart]);
+    saveOrder();
+  }, [clearCart]);
 
   return (
     <main className={styles.container}>
@@ -85,19 +66,15 @@ const Success = () => {
           {error ? (
             <>
               <h1 className="text-3xl font-bold mb-4 text-yellow text-center">
-                {error.includes("авторизация")
-                  ? "Требуется авторизация"
-                  : "Ошибка"}
+                Ошибка
               </h1>
               <p className="text-lg text-yellow text-center mb-6">{error}</p>
-              {error.includes("авторизация") && (
-                <a
-                  href="/auth"
-                  className="inline-block bg-yellow text-red text-lg font-medium text-center px-6 py-3 rounded-xl"
-                >
-                  Войти или зарегистрироваться
-                </a>
-              )}
+              <a
+                href="/"
+                className="inline-block bg-yellow text-red text-lg font-medium text-center px-6 py-3 rounded-xl"
+              >
+                Вернуться на главную
+              </a>
             </>
           ) : isSaved ? (
             <>
